@@ -4,11 +4,15 @@ const bodyParser = require('body-parser')
 const app = express()
 const parser = bodyParser.json()
 const notes = []
+let idValue = 0
 
 app.use(parser)
 
 app.post('/notes', (req, res) => {
-  notes.push(req.body)
+  const noteId = {id: idValue}
+  notes.push(noteId)
+  Object.assign(noteId, req.body)
+  idValue++
   res.sendStatus(201)
 })
 
