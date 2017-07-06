@@ -12,6 +12,10 @@ app.post('/notes', (req, res) => {
   res.sendStatus(201)
 })
 
+app.get('/notes', (req, res) => {
+  res.send(notes)
+})
+
 app.listen(3000, () => {
   console.log('Listening on 3000!')
 })
